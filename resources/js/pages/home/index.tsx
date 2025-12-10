@@ -11,13 +11,13 @@ export default function Home() {
     // console.log("auth", auth);
     const siteLocation = window.location.href;
     const images = [
-      '/images/works/sunrise.png',
-      '/images/works/sunrise.png',
-      '/images/works/sunrise.png',
-      '/images/works/sunrise.png',
-      '/images/works/sunrise.png',
-      '/images/works/sunrise.png',
-      '/images/works/sunrise.png',
+        '/images/works/sunrise.png',
+        '/images/works/sunrise.png',
+        '/images/works/sunrise.png',
+        '/images/works/sunrise.png',
+        '/images/works/sunrise.png',
+        '/images/works/sunrise.png',
+        '/images/works/sunrise.png',
         '/images/works/sunrisenew.png',
         '/images/works/ebeema.png',
         '/images/works/shikhar.png',
