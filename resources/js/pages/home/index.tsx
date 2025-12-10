@@ -18,6 +18,86 @@ export default function Home() {
       '/images/works/sunrise.png',
       '/images/works/sunrise.png',
       '/images/works/sunrise.png',
+        '/images/works/sunrisenew.png',
+        '/images/works/ebeema.png',
+        '/images/works/shikhar.png',
+        '/images/works/oriental.png',
+        '/images/works/dashboard-mobile-view.png',
+        'https://assets.aceternity.com/glare-card.png',
+        'https://assets.aceternity.com/layout-grid.png',
+        '/images/works/oriental-gird.png',
+        '/images/works/shikhardashboard.png',
+        '/images/works/sunrise.png',
+        '/images/works/sunrisenew.png',
+        'https://assets.aceternity.com/flip-text.png',
+        'https://assets.aceternity.com/hero-highlight.png',
+        'https://assets.aceternity.com/carousel.webp',
+        '/images/works/ebeema.png',
+        '/images/works/shikhar.png',
+        '/images/works/oriental.png',
+        '/images/works/dashboard-mobile-view.png',
+        '/images/works/oriental-gird.png',
+        '/images/works/shikhardashboard.png',
+        '/images/works/sunrise.png',
+        '/images/works/hrit.png',
+        'https://assets.aceternity.com/placeholders-and-vanish-input.png',
+        'https://assets.aceternity.com/shooting-stars-and-stars-background.png',
+        'https://assets.aceternity.com/signup-form.png',
+        'https://assets.aceternity.com/cloudinary_bkp/stars_sxle3d.png',
+        '/images/works/hrit-dashboard.png',
+        '/images/works/hrit-roles.png',
+        '/images/works/sunrisenew.png',
+        '/images/works/ebeema.png',
+        '/images/works/shikhar.png',
+        '/images/works/oriental.png',
+        '/images/works/dashboard-mobile-view.png',
+        '/images/works/oriental-gird.png',
+        '/images/works/shikhardashboard.png',
+        '/images/works/sunrise.png',
+
+        '/images/works/sunrisenew.png',
+        '/images/works/ebeema.png',
+        '/images/works/shikhar.png',
+        '/images/works/oriental.png',
+        '/images/works/dashboard-mobile-view.png',
+        '/images/works/oriental-gird.png',
+        '/images/works/shikhardashboard.png',
+        '/images/works/sunrise.png',
+        '/images/works/hrit.png',
+        '/images/works/hrit-dashboard.png',
+        '/images/works/hrit-roles.png',
+
+        // 'https://assets.aceternity.com/cloudinary_bkp/3d-card.png',
+        // 'https://assets.aceternity.com/animated-modal.png',
+        // 'https://assets.aceternity.com/animated-testimonials.webp',
+        // 'https://assets.aceternity.com/cloudinary_bkp/Tooltip_luwy44.png',
+        // 'https://assets.aceternity.com/github-globe.png',
+        // 'https://assets.aceternity.com/glare-card.png',
+        // 'https://assets.aceternity.com/layout-grid.png',
+        // 'https://assets.aceternity.com/flip-text.png',
+        // 'https://assets.aceternity.com/hero-highlight.png',
+        // 'https://assets.aceternity.com/carousel.webp',
+        // 'https://assets.aceternity.com/placeholders-and-vanish-input.png',
+        // 'https://assets.aceternity.com/shooting-stars-and-stars-background.png',
+        // 'https://assets.aceternity.com/signup-form.png',
+        // 'https://assets.aceternity.com/cloudinary_bkp/stars_sxle3d.png',
+        // 'https://assets.aceternity.com/spotlight-new.webp',
+        // 'https://assets.aceternity.com/cloudinary_bkp/Spotlight_ar5jpr.png',
+        // 'https://assets.aceternity.com/cloudinary_bkp/Parallax_Scroll_pzlatw_anfkh7.png',
+        // 'https://assets.aceternity.com/tabs.png',
+        // 'https://assets.aceternity.com/cloudinary_bkp/Tracing_Beam_npujte.png',
+        // 'https://assets.aceternity.com/cloudinary_bkp/typewriter-effect.png',
+        // 'https://assets.aceternity.com/glowing-effect.webp',
+        // 'https://assets.aceternity.com/hover-border-gradient.png',
+        // 'https://assets.aceternity.com/cloudinary_bkp/Infinite_Moving_Cards_evhzur.png',
+        // 'https://assets.aceternity.com/cloudinary_bkp/Lamp_hlq3ln.png',
+        // 'https://assets.aceternity.com/macbook-scroll.png',
+        // 'https://assets.aceternity.com/cloudinary_bkp/Meteors_fye3ys.png',
+        // 'https://assets.aceternity.com/cloudinary_bkp/Moving_Border_yn78lv.png',
+        // 'https://assets.aceternity.com/multi-step-loader.png',
+        // 'https://assets.aceternity.com/vortex.png',
+        // 'https://assets.aceternity.com/wobble-card.png',
+        // 'https://assets.aceternity.com/world-map.webp',
     ];
 
     const projects = [
@@ -41,20 +121,20 @@ export default function Home() {
             description: `Experience comprehensive online growth with our integrated 360 digital marketing solutions." (Link to 360 Digital Marketing section on Services page)`,
             link: 'https://meta.com',
         },
-          {
+        {
             title: 'Web Design',
             description: `Experience comprehensive online growth with our integrated 360 digital marketing solutions." (Link to 360 Digital Marketing section on Services page)`,
             link: 'https://meta.com',
         },
-          {
+        {
             title: 'Responsive Web Design',
             description: `Experience comprehensive online growth with our integrated 360 digital marketing solutions." (Link to 360 Digital Marketing section on Services page)`,
             link: 'https://meta.com',
         },
-          {
+        {
             title: 'Website Redesign',
             description: `Experience comprehensive online growth with our integrated 360 digital marketing solutions." (Link to 360 Digital Marketing section on Services page)`,
-            
+
             link: 'https://meta.com',
         },
         {
@@ -112,30 +192,30 @@ export default function Home() {
                         <div className="absolute inset-0 z-10 h-full w-full bg-black/80 dark:bg-black/40" />
                         <ThreeDMarquee className="pointer-events-none absolute inset-0 h-full w-full" images={images} />
                     </div>
-                    <div className='bg-[#d5e0e6] px-3 py-10'>
-                    <div className='max-w-7xl mx-auto'>
-                        <div className="grid md:grid-cols-2 gap-4">
-                            <div className='space-y-2 mt-8'>
-                                <h1 className='text-3xl font-bold'>Creative Web Agency Delivering Custom Solutions</h1>
+                    <div className="bg-[#d5e0e6] px-3 py-10">
+                        <div className="mx-auto max-w-7xl">
+                            <div className="grid gap-4 md:grid-cols-2">
+                                <div className="mt-8 space-y-2">
+                                    <h1 className="text-3xl font-bold">Creative Web Agency Delivering Custom Solutions</h1>
 
-                                <ul className='leading-relaxed mt-10'>
-                                    <li>Results-Driven Strategies: We focus on measurable outcomes for your business</li>
-                                    <li>Expert Team: Our specialists are at the forefront of digital innovation.</li>
-                                    <li>Client-Centric Approach: Your success is our priority.</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <img src="images/banner.jpg" alt="" />
+                                    <ul className="mt-10 leading-relaxed">
+                                        <li>Results-Driven Strategies: We focus on measurable outcomes for your business</li>
+                                        <li>Expert Team: Our specialists are at the forefront of digital innovation.</li>
+                                        <li>Client-Centric Approach: Your success is our priority.</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <img src="images/banner.jpg" alt="" />
+                                </div>
                             </div>
                         </div>
                     </div>
-                    </div>
                     <div className="mx-auto max-w-7xl px-8">
-                        <h3 className='text-center font-bold text-3xl  mt-15'>Our Services</h3>
+                        <h3 className="mt-15 text-center text-3xl font-bold">Our Services</h3>
                         <HoverEffect items={projects} />
                     </div>
                     <div>
-                        <TimelineDemo/>
+                        <TimelineDemo />
                     </div>
                 </section>
             </HomeLayout>
