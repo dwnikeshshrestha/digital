@@ -23,6 +23,11 @@ const mainNavItems: NavItem[] = [
         href: '/dashboard/blogs',
         icon: LayoutGrid,
     },
+     {
+        title: 'Faqs',
+        href: '/dashboard/faqs',
+        icon: LayoutGrid,
+    },
 ];
 
 const footerNavItems: NavItem[] = [

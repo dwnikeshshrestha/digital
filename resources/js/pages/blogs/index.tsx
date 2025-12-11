@@ -28,6 +28,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Input } from '@/components/ui/input';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import parse from 'html-react-parser';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -46,12 +47,7 @@ interface MenuItem {
 interface MenuBuilderProps {
     initialItems?: MenuItem[];
 }
-interface initialValues {
-    title: string;
-    slug: string;
-    url: string;
-    status: string;
-}
+
 type Payment = {
     id: string;
     amount: number;
@@ -85,7 +81,7 @@ export default function Index({ user, message }: MenuBuilderProps) {
                 {
             accessorKey: 'description',
             header: 'description',
-            cell: ({ row }) => <div className="capitalize">{row.getValue('description')}</div>,
+            cell: ({ row }) => <div className="capitalize">{parse(row.getValue('description'))}</div>,
         },
              
         {

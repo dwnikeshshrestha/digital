@@ -50,17 +50,17 @@ export function NavigationMenuDemo() {
     const isMobile = useIsMobile();
 
     return (
-        <NavigationMenu viewport={isMobile} className="p-4">
-            <div className="flex justify-between">
-                <div>
-                    <img src="/logo.png" alt="company-logo" width={280} height={80} />
-                </div>
+        <div className="flex justify-between items-center">
+            <div>
+                <img src="/logo.png" alt="company-logo" width={280} height={80} />
+            </div>
+            <NavigationMenu viewport={isMobile} className="p-4">
                 <NavigationMenuList className="flex-wrap">
                     <NavigationMenuItem>
                         <NavigationMenuTrigger>Home</NavigationMenuTrigger>
                         <NavigationMenuContent>
-                            <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                                <li className="row-span-3">
+                            <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr] z-50">
+                                <li className="row-span-3 z-50">
                                     <NavigationMenuLink asChild>
                                         <a
                                             className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-4 no-underline outline-hidden transition-all duration-200 select-none focus:shadow-md md:p-6"
@@ -175,8 +175,8 @@ export function NavigationMenuDemo() {
                         </NavigationMenuContent>
                     </NavigationMenuItem>
                 </NavigationMenuList>
-            </div>
-        </NavigationMenu>
+            </NavigationMenu>
+        </div>
     );
 }
 

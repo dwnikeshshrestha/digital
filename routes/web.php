@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\MenuController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -29,6 +30,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::resource('category', CategoryController::class);
         Route::resource('menus', MenuController::class);
         Route::resource('blogs', BlogController::class);
+        Route::resource('faqs', FaqController::class);
     });
 });
 

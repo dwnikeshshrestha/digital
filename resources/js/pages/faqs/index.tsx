@@ -1,0 +1,217 @@
+import { Button } from '@/components/ui/button';
+import {
+    DropdownMenu,
+    DropdownMenuCheckboxItem,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { Input } from '@/components/ui/input';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import AppLayout from '@/layouts/app-layout';
+import { type BreadcrumbItem } from '@/types';
+import { Head, router } from '@inertiajs/react';
+import {
+    ColumnDef,
+    ColumnFiltersState,
+    SortingState,
+    VisibilityState,
+    flexRender,
+    getCoreRowModel,
+    getFilteredRowModel,
+    getPaginationRowModel,
+    getSortedRowModel,
+    useReactTable,
+} from '@tanstack/react-table';
+import parse from 'html-react-parser';
+import { ChevronDown, MoreHorizontal } from 'lucide-react';
+import * as React from 'react';
+
+const breadcrumbs: BreadcrumbItem[] = [
+    {
+        title: 'Password settings',
+        href: '/settings/password',
+    },
+];
+interface MenuItem {
+    id: string;
+    question: string;
+    answer: string;
+    meta_title: string;
+    meta_description: string;
+    is_active: string;
+    type: 'page' | 'custom' | 'category';
+    children: MenuItem[];
+    isExpanded?: boolean;
+}
+interface MenuBuilderProps {
+    faqs?: MenuItem[];
+    message?: string;
+}
+
+export default function Index({ faqs, message }: MenuBuilderProps) {
+    const [sorting, setSorting] = React.useState<SortingState>([]);
+    const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
+    const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
+    const [rowSelection, setRowSelection] = React.useState({});
+    const columns: ColumnDef<MenuItem>[] = [
+        {
+            accessorKey: 'question',
+            header: 'Question',
+            cell: ({ row }) => <div className="capitalize">{row.getValue('question')}</div>,
+        },
+
+        {
+            accessorKey: 'answer',
+            header: 'answer',
+            cell: ({ row }) => <div className="capitalize">{parse(row.getValue('answer'))}</div>,
+        },
+
+        {
+            accessorKey: 'is_active',
+            header: 'Status',
+            cell: ({ row }) => <div className="capitalize">{row.getValue('is_active')}</div>,
+        },
+        {
+            id: 'actions',
+            enableHiding: false,
+            cell: ({ row }) => {
+                const payment = row.original;
+
+                return (
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <Button variant="ghost" className="h-8 w-8 p-0">
+                                <span className="sr-only">Open menu</span>
+                                <MoreHorizontal />
+                            </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end">
+                            <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                            <DropdownMenuItem onClick={() => navigator.clipboard.writeText(payment.id)}>Edit</DropdownMenuItem>
+                            <DropdownMenuSeparator />
+                            <DropdownMenuItem>Delete</DropdownMenuItem>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
+                );
+            },
+        },
+    ];
+    console.log('faqs', faqs);
+    console.log('message', message);
+    const table = useReactTable({
+        data: faqs || [],
+        columns,
+        onSortingChange: setSorting,
+        onColumnFiltersChange: setColumnFilters,
+        getCoreRowModel: getCoreRowModel(),
+        getPaginationRowModel: getPaginationRowModel(),
+        getSortedRowModel: getSortedRowModel(),
+        getFilteredRowModel: getFilteredRowModel(),
+        onColumnVisibilityChange: setColumnVisibility,
+        onRowSelectionChange: setRowSelection,
+        state: {
+            sorting,
+            columnFilters,
+            columnVisibility,
+            rowSelection,
+        },
+    });
+
+    return (
+        <AppLayout breadcrumbs={breadcrumbs}>
+            <Head title="Profile settings" />
+
+            <section className="px-5 py-5">
+                <div className="w-full">
+                    <div className="flex items-center justify-between py-4">
+                        <Input
+                            placeholder="Filter Question..."
+                            value={(table.getColumn('question')?.getFilterValue() as string) ?? ''}
+                            onChange={(event) => table.getColumn('question')?.setFilterValue(event.target.value)}
+                            className="max-w-sm"
+                        />
+
+                        <div className="flex items-center gap-2">
+                            <DropdownMenu>
+                                <DropdownMenuTrigger asChild>
+                                    <Button variant="outline" className="ml-auto">
+                                        Columns <ChevronDown />
+                                    </Button>
+                                </DropdownMenuTrigger>
+                                <DropdownMenuContent align="end">
+                                    {table
+                                        .getAllColumns()
+                                        .filter((column) => column.getCanHide())
+                                        .map((column) => {
+                                            return (
+                                                <DropdownMenuCheckboxItem
+                                                    key={column.id}
+                                                    className="capitalize"
+                                                    checked={column.getIsVisible()}
+                                                    onCheckedChange={(value) => column.toggleVisibility(!!value)}
+                                                >
+                                                    {column.id}
+                                                </DropdownMenuCheckboxItem>
+                                            );
+                                        })}
+                                </DropdownMenuContent>
+                            </DropdownMenu>
+
+                            <Button onClick={() => router.get(route('faqs.create'))}>Go to Menu</Button>
+                        </div>
+                    </div>
+                    <div className="rounded-md border">
+                        <Table>
+                            <TableHeader>
+                                {table.getHeaderGroups().map((headerGroup) => (
+                                    <TableRow key={headerGroup.id}>
+                                        {headerGroup.headers.map((header) => {
+                                            return (
+                                                <TableHead key={header.id}>
+                                                    {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+                                                </TableHead>
+                                            );
+                                        })}
+                                    </TableRow>
+                                ))}
+                            </TableHeader>
+                            <TableBody>
+                                {table.getRowModel().rows?.length ? (
+                                    table.getRowModel().rows.map((row) => (
+                                        <TableRow key={row.id} data-state={row.getIsSelected() && 'selected'}>
+                                            {row.getVisibleCells().map((cell) => (
+                                                <TableCell key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</TableCell>
+                                            ))}
+                                        </TableRow>
+                                    ))
+                                ) : (
+                                    <TableRow>
+                                        <TableCell colSpan={columns.length} className="h-24 text-center">
+                                            No results.
+                                        </TableCell>
+                                    </TableRow>
+                                )}
+                            </TableBody>
+                        </Table>
+                    </div>
+                    <div className="flex items-center justify-end space-x-2 py-4">
+                        <div className="text-muted-foreground flex-1 text-sm">
+                            {table.getFilteredSelectedRowModel().rows.length} of {table.getFilteredRowModel().rows.length} row(s) selected.
+                        </div>
+                        <div className="space-x-2">
+                            <Button variant="outline" size="sm" onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()}>
+                                Previous
+                            </Button>
+                            <Button variant="outline" size="sm" onClick={() => table.nextPage()} disabled={!table.getCanNextPage()}>
+                                Next
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </AppLayout>
+    );
+}
