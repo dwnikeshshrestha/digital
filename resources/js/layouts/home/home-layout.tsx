@@ -1,5 +1,5 @@
-import Footer from '@/components/home/Footer';
-import NavBar from '@/components/home/NavBar';
+import Footer from '@/components/layouts/Footer';
+import NavBar from '@/components/layouts/NavBar';
 import { type BreadcrumbItem } from '@/types';
 import { type PropsWithChildren } from 'react';
 
@@ -7,7 +7,7 @@ export default function HomeLayout({ children }: PropsWithChildren<{ breadcrumbs
     return (
         <>
             <NavBar />
-            <main>{children}</main>
+            <main className='mt-20 font-brand'>{children}</main>
             <Footer />
         </>
     );
