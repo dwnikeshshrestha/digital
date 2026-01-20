@@ -3,6 +3,8 @@ import WhyUs from '@/components/home/WhyUs';
 import HomeLayout from '@/layouts/home/home-layout';
 import { type SharedData } from '@/types';
 import { Head, usePage } from '@inertiajs/react';
+import About from '../about/About';
+import Services from '@/components/home/Services';
 
 export default function Home() {
     const { auth } = usePage<SharedData>().props;
@@ -78,7 +80,11 @@ export default function Home() {
             </Head>
             <HomeLayout>
                 <Hero />
+                <Services/>
                 <WhyUs/>
+                <About/>
+              
+
                 {/* <section className="bg-[#d5e0e6] px-3 py-10">
                     <div className="mx-auto max-w-7xl">
                         <div className="grid gap-4 md:grid-cols-2">

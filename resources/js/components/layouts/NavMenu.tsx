@@ -15,7 +15,6 @@ export function NavigationMenuDemo() {
                     <li>Services</li>
                     <li>Blog</li>
                     <li>Contact us</li>
-                    <li></li>
                 </ul>
                 <div className="flex items-center justify-between gap-2">
                     <div className="">
